@@ -12,7 +12,10 @@
     "preview": "vite preview",
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix",
-    "check": "prettier --check ."
+    "check": "prettier --check .",
+    "sb:pull": "storyblok components pull",
+    "sb:types": "storyblok types generate",
+    "sb:sync": "npm run sb:pull && npm run sb:types"
   },
   "dependencies": {
     "@storyblok/react": "^7.3.1",
@@ -48,6 +51,7 @@
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9.20.0",
     "prettier": "^3.8.1",
+    "storyblok": "^4.25.0",
     "typescript": "^6.0.2",
     "vite": "^8.0.0"
   },
