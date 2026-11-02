@@ -13,3 +13,4 @@ __unconfig*
 todos.json
 .storyblok/logs/
 .storyblok/reports/
+.vercel
