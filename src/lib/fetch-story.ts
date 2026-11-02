@@ -10,7 +10,7 @@ export async function fetchStory(slug: string): Promise<{ story: ISbStoryData }>
     })
     return { story: data.story as ISbStoryData };
   } catch (error) {
-    if ((error as { status: number }).status === 404) throw notFound();
-    throw notFound();
+    if ((error as { status?: number }).status === 404) throw notFound();
+    throw error;
   }
 }
