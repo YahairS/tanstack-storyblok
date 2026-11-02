@@ -13,7 +13,7 @@ export const env = createEnv({
   clientPrefix: 'VITE_',
 
   client: {
-    VITE_STORYBLOK_TOKEN: z.string().min(1).optional(),
+    VITE_STORYBLOK_TOKEN: z.string().min(1),
   },
 
   /**
