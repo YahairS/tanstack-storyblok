@@ -1,4 +1,5 @@
-import { StoryblokComponent, storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { StoryblokComponent, storyblokEditable  } from '@storyblok/react';
+import type {SbBlokData} from '@storyblok/react';
 
 export default function Page({ blok }: { blok: SbBlokData & { body?: SbBlokData[] } }) {
   return (

@@ -1,4 +1,5 @@
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable  } from '@storyblok/react';
+import type {SbBlokData} from '@storyblok/react';
 
 export default function Feature({ blok }: { blok: SbBlokData & { name?: string; description?: string } }) {
   return (
