@@ -1,8 +1,8 @@
 import { storyblokEditable } from '@storyblok/react';
-import type { SbBlokData } from '@storyblok/react';
+import type { Feature as FeatureBlok } from '@/lib/storyblok-types';
 import { ContentCard } from '@/components/ContentCard';
 
-export default function Feature({ blok }: { blok: SbBlokData & { name?: string; description?: string } }) {
+export default function Feature({ blok }: { blok: FeatureBlok }) {
   return (
     <ContentCard
       title={blok.name}
