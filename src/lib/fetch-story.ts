@@ -1,4 +1,5 @@
-import { getStoryblokApi, type ISbStoryData } from '@storyblok/react';
+import { getStoryblokApi  } from '@storyblok/react';
+import type {ISbStoryData} from '@storyblok/react';
 import { notFound } from '@tanstack/react-router';
 
 export async function fetchStory(slug: string): Promise<{ story: ISbStoryData }> {

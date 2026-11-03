@@ -1,10 +1,13 @@
-import { storyblokEditable, type SbBlokData } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react';
+import type { Feature as FeatureBlok } from '@/lib/storyblok-types';
+import { ContentCard } from '@/components/ContentCard';
 
-export default function Feature({ blok }: { blok: SbBlokData & { name?: string; description?: string } }) {
+export default function Feature({ blok }: { blok: FeatureBlok }) {
   return (
-    <div {...storyblokEditable(blok)} className="p-4 border rounded shadow">
-      <h2 className="text-xl font-bold">{blok.name}</h2>
-      <p>{blok.description}</p>
-    </div>
+    <ContentCard
+      title={blok.name}
+      description={blok.description}
+      {...storyblokEditable(blok)}
+    />
   );
 }
