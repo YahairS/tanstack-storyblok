@@ -46,6 +46,7 @@ Defined in `.env` (never committed). `.env.example` lists them empty.
 
 - **Content version:** `draft` in development, `published` in production (`import.meta.env.DEV`).
 - **Block field names** must match the Storyblok schema exactly. Check `.storyblok/components/` or the generated types; never guess field names.
+- **Block props are typed from the generated types**, imported through `@/lib/storyblok-types` — never hand-written as `SbBlokData & { … }`. A hand-written shape is a guess the compiler cannot check against the space: that is how `Feature` came to read a `description` field before it existed in the schema, with nothing failing. With the generated interface the CLI is the source of truth, so a field renamed or removed in Storyblok becomes a type error on the next `sb:sync`. The type and the component usually share a name, hence `import type { Feature as FeatureBlok }`. The re-export exists because `@/` resolves to `src/` only and `.storyblok/types/` sits outside it; it also keeps the space id in one place. Add new blocks to that file's export list.
 - **Block registration:** keys in the `components` map must match the block's technical name in Storyblok.
 - Every block component's root element spreads `storyblokEditable(blok)` so it is clickable in the Visual Editor.
 - **Do not rename block technical names or fields** without a content migration: renaming does not migrate existing stories.
