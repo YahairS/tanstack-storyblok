@@ -2,19 +2,19 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/utils'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-type MediaCardProps = {
+type ContentCardProps = {
   title?: string
   description?: string
   imageSrc?: string
   imageAlt?: string
 } & ComponentPropsWithoutRef<'div'>
 
-export function MediaCard({ title, description, imageSrc, imageAlt = '', className, ...rest }: MediaCardProps) {
+export function ContentCard({ title, description, imageSrc, imageAlt = '', className, ...rest }: ContentCardProps) {
   return (
-    <Card className={cn('overflow-hidden pt-0', className) } {...rest}>
+    <Card className={cn(imageSrc && 'overflow-hidden pt-0', className)} {...rest}>
       {imageSrc ? (
         <div className="relative">
-          <img 
+          <img
             src={imageSrc}
             alt={imageAlt}
             className="aspect-video w-full object-cover"
