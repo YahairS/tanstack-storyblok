@@ -50,6 +50,7 @@ Defined in `.env` (never committed). `.env.example` lists them empty.
 - Every block component's root element spreads `storyblokEditable(blok)` so it is clickable in the Visual Editor.
 - **Do not rename block technical names or fields** without a content migration: renaming does not migrate existing stories.
 - Schema changes go through a PR together with the generated types and the related component.
+- **Import alias:** use `@/` for anything under `src/` (`@/components/ui/card`, not `../components/ui/card`). `tsconfig.json` maps both `@/*` and `#/*` to `./src/*`, and Vite resolves them through `resolve: { tsconfigPaths: true }`. Keep `#/` for the paraglide imports only (`#/paraglide/runtime`, `#/paraglide/messages`): `#/*` is also declared in `package.json` `imports`, so it is a Node subpath import, which is what the paraglide + TanStack i18n example uses. Nothing enforces this — ESLint has no rule for it. The 14 pre-existing relative imports are still to be migrated.
 
 ## Security
 
