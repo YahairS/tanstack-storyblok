@@ -56,9 +56,22 @@ Defined in `.env` (never committed). `.env.example` lists them empty.
 - Never commit `.env` or any token.
 - The Storyblok CLI uses a Personal Access Token (stored by `storyblok login`), separate from the space access token. Never print, log or commit it.
 
+## Deployment
+
+Hosted on Vercel, on the **Hobby** plan, which cannot connect to a private repository owned by a GitHub organization. The Vercel project is therefore imported from **`YahairS/tanstack-storyblok`** (private, personal account), not from the org repo.
+
+- `origin` points at that personal repo, and `main` tracks it, so a plain `git push` deploys.
+- `main` is the production branch; any other branch gets a preview deployment with its own URL.
+- `VITE_STORYBLOK_TOKEN` is set in Vercel for **Production and Preview**, holding the Storyblok **Public** token. Not for Development: `vercel env pull` would overwrite the local `.env`, which holds the Preview token the Visual Editor needs.
+- The build runs `vite build` on Vercel, so ESLint never runs there; lint warnings in the install log do not affect the deployment.
+- `Digital360-Connect/tanstack-storyblok` is no longer configured as a remote and goes stale. Re-add it with `git remote add d360 git@github.com:Digital360-Connect/tanstack-storyblok.git`.
+
 ## Known issues / pending
 
 - **`happy-dom` vulnerability** (via `@storyblok/richtext` → `@tiptap/html`). If no fixed `@storyblok/react` release is available, apply an npm `overrides` for `happy-dom` (`^21.0.4`) and test rich text rendering. Do not run `npm audit fix --force`.
 - **`postcss-selector-parser`** moderate vulnerability (via `@tailwindcss/typography`): build-time only, accepted.
 - **ESLint peer dependency warnings** (`@tanstack/eslint-config` expects ESLint 10): harmless.
-- **Deployment** not set up yet (Vercel Hobby can't import private org repos; Netlify attempt failed).
+- **Stale published content on Vercel after publishing in Storyblok.** `storyblok-js-client` tracks the Storyblok cache version (`cv`) per token in a module-level variable, and the default config is `{ clear: "manual" }`, which never refreshes it. A warm serverless instance therefore keeps requesting the snapshot it first saw, so a story published afterwards is not served. It does not show up locally: the dev server restarts often and asks for `draft`, which is not affected.
+  Confirmed on 2026-11-03 — the deployment served content published the previous day while the API returned the current one. A redeploy fixes it, because new instances start with a fresh `cv`.
+  `apiOptions.cache = { clear: 'auto', type: 'memory' }` is the obvious candidate, but it was **not** verified: the auto-flush triggers on the space version, which the client only reads from `/cdn/spaces/me` responses, not from ordinary content requests. Do not add it without testing that it actually fires in this flow.
+  The real fix is an architectural decision still to be made with the team: cache deliberately and have a Storyblok publish webhook invalidate or redeploy, instead of fetching per request with no invalidation.
