@@ -1,9 +1,10 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react';
-import Page from '../storyblok/Page';
-import Grid from '../storyblok/Grid';
-import Teaser from '../storyblok/Teaser';
-import Feature from '../storyblok/Feature';
-import { env } from '../env';
+import Page from '@/storyblok/Page';
+import Grid from '@/storyblok/Grid';
+import Teaser from '@/storyblok/Teaser';
+import Feature from '@/storyblok/Feature';
+import ImageCard from '@/storyblok/ImageCard';
+import { env } from '@/env';
 
 storyblokInit({
   accessToken: env.VITE_STORYBLOK_TOKEN,
@@ -16,5 +17,6 @@ storyblokInit({
     grid: Grid,
     teaser: Teaser,
     feature: Feature,
+    image_card: ImageCard,
   },
 });

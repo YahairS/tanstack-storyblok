@@ -1,0 +1,1 @@
+export type { Feature, Grid, ImageCard, Page, Teaser } from '../../.storyblok/types/296153418285379/storyblok-components';

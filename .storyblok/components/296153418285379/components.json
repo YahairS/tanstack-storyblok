@@ -63,6 +63,49 @@
     "metadata": {}
   },
   {
+    "name": "image_card",
+    "display_name": null,
+    "description": "",
+    "created_at": "2026-11-03T16:21:55.074Z",
+    "updated_at": "2026-11-03T16:30:30.580Z",
+    "id": 237704458550145,
+    "schema": {
+      "title": {
+        "type": "text",
+        "pos": 0,
+        "id": "9UAif-ieTJm1wYi6rXtlTQ"
+      },
+      "description": {
+        "type": "text",
+        "pos": 1,
+        "id": "GB231EQTSsmdYJb1-iTIvA"
+      },
+      "image": {
+        "type": "asset",
+        "pos": 2,
+        "id": "DpiJhnbISB2OY_--C_IjPg",
+        "filetypes": [
+          "images"
+        ]
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "image_card",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "page",
     "display_name": null,
     "description": null,
