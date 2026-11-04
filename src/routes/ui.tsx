@@ -13,6 +13,34 @@ function UiSandBox() {
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-10 p-10">
       <section className="flex flex-col gap-4">
+        <h2 className="text-xl font-bold">Typography — base styles</h2>
+        <div className="max-w-none">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <p>Párrafo normal. El texto base hereda Manrope desde el body.</p>
+          <p>
+            <em>Párrafo en itálica</em>, para énfasis suave.
+          </p>
+          <p>
+            <strong>Párrafo en negrita</strong>, para énfasis fuerte.
+          </p>
+          <ul>
+            <li>Primer item de la lista desordenada</li>
+            <li>Segundo item</li>
+            <li>Tercer item</li>
+          </ul>
+          <ol>
+            <li>Primer item de la lista ordenada</li>
+            <li>Segundo item</li>
+            <li>Tercer item</li>
+          </ol>
+        </div>
+      </section>
+      <section className="flex flex-col gap-4">
         <h2 className="text-xl font-bold">Button UI Variants</h2>
         <div className="flex flex-wrap items-center gap-3">
           {variants.map((variant) => (
