@@ -1,7 +1,7 @@
 import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
-import type { Page as PageBlok } from '@/lib/storyblok-types';
+import type { BlockPage as PageBlok } from '@/lib/storyblok-types';
 
-export default function Page({ blok }: { blok: PageBlok }) {
+export default function BlockPage({ blok }: { blok: PageBlok }) {
   return (
     <div {...storyblokEditable(blok)}>
       {blok.body?.map((nested) => (
