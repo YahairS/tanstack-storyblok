@@ -16,12 +16,18 @@ Website built with **TanStack Start** (React) using **Storyblok** as headless CM
 
 - `src/lib/storyblok.ts` — `storyblokInit` and block registration (`components` map). Imported in `src/routes/__root.tsx`.
 - `src/lib/fetch-story.ts` — `fetchStory(slug)`: fetches a story from the CDN API, returns `{ story }`, throws `notFound()` on 404.
+- `src/lib/storyblok-types.ts` — re-exports the generated block interfaces so they can be imported as `@/lib/storyblok-types`. `@/` resolves to `src/` only, and the generated file sits outside it; this also keeps the space id in one place. Add new blocks to its export list.
+- `src/lib/utils.ts` — re-exports `cn` from the `cn` package.
 - `src/components/StoryView.tsx` — renders a story with `useStoryblokState` (live updates in Visual Editor) + `StoryblokComponent`.
+- `src/components/ui/` — shadcn primitives (`button`, `card`). Generated, excluded from ESLint, never hand-edited.
+- `src/components/ContentCard.tsx` — presentational card: optional `title`, `description`, `imageSrc`, `imageAlt`, knows nothing about Storyblok, forwards unknown props to its root.
 - `src/routes/index.tsx` — home, loads the `home` story.
 - `src/routes/$.tsx` — catch-all route, loads the story matching the URL path (`params._splat`).
-- `src/storyblok/` — React components for Storyblok blocks (`Page`, `Grid`, `Teaser`, `Feature`).
+- `src/routes/ui.tsx` — `/ui`, development sandbox for the primitives and `ContentCard`. Not a page of the site.
+- `src/storyblok/` — React components for Storyblok blocks (`Page`, `Grid`, `Teaser`, `Feature`, `ImageCard`). `Page` and `Grid` are the components; `Feature` and `ImageCard` are adapters over `ContentCard`.
 - `.storyblok/components/` — block schemas pulled from Storyblok (versioned).
 - `.storyblok/types/` — generated TypeScript types (versioned).
+- `public/placeholder.svg` — placeholder image for the sandbox, so it works without network access.
 
 ## Architecture
 
