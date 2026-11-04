@@ -1,8 +1,8 @@
 import { storyblokEditable } from "@storyblok/react";
-import type { ImageCard as ImageCardBlok } from "@/lib/storyblok-types";
+import type { BlockImageCard as ImageCardBlok } from "@/lib/storyblok-types";
 import { ContentCard } from "@/components/ContentCard";
 
-export default function ImageCard({ blok }: { blok: ImageCardBlok }) {
+export default function BlockImageCard({ blok }: { blok: ImageCardBlok }) {
   return (
     <ContentCard
       title={blok.title}

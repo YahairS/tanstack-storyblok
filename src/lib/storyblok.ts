@@ -1,9 +1,9 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react';
-import Page from '@/storyblok/Page';
-import Grid from '@/storyblok/Grid';
-import Teaser from '@/storyblok/Teaser';
-import Feature from '@/storyblok/Feature';
-import ImageCard from '@/storyblok/ImageCard';
+import BlockPage from '@/storyblok/BlockPage';
+import BlockGrid from '@/storyblok/BlockGrid';
+import BlockTeaser from '@/storyblok/BlockTeaser';
+import BlockFeature from '@/storyblok/BlockFeature';
+import BlockImageCard from '@/storyblok/BlockImageCard';
 import { env } from '@/env';
 
 storyblokInit({
@@ -13,10 +13,10 @@ storyblokInit({
     region: 'eu',
   },
   components: {
-    page: Page,
-    grid: Grid,
-    teaser: Teaser,
-    feature: Feature,
-    image_card: ImageCard,
+    block_page: BlockPage,
+    block_grid: BlockGrid,
+    block_teaser: BlockTeaser,
+    block_feature: BlockFeature,
+    block_image_card: BlockImageCard,
   },
 });

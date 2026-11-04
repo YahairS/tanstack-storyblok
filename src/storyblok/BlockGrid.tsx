@@ -1,7 +1,7 @@
 import { StoryblokComponent, storyblokEditable } from '@storyblok/react'
-import type { Grid as GridBlok } from '@/lib/storyblok-types'
+import type { BlockGrid as GridBlok } from '@/lib/storyblok-types'
 
-export default function Grid({ blok }: { blok: GridBlok }) {
+export default function BlockGrid({ blok }: { blok: GridBlok }) {
   return (
     <div {...storyblokEditable(blok)} className="grid grid-cols-3 gap-4" >
       {blok.columns?.map((nested) => (

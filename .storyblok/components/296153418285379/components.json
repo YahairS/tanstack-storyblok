@@ -1,10 +1,10 @@
 [
   {
-    "name": "feature",
+    "name": "block_feature",
     "display_name": null,
     "description": null,
     "created_at": "2026-10-26T15:07:42.481Z",
-    "updated_at": "2026-11-03T09:37:07.639Z",
+    "updated_at": "2026-11-04T15:00:58.912Z",
     "id": 234855065527657,
     "schema": {
       "description": {
@@ -24,7 +24,7 @@
     "is_nestable": true,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "feature",
+    "real_name": "block_feature",
     "component_group_uuid": null,
     "color": null,
     "icon": null,
@@ -34,11 +34,11 @@
     "metadata": {}
   },
   {
-    "name": "grid",
+    "name": "block_grid",
     "display_name": null,
     "description": null,
     "created_at": "2026-10-26T15:07:42.468Z",
-    "updated_at": "2026-10-26T15:07:42.468Z",
+    "updated_at": "2026-11-04T15:01:19.834Z",
     "id": 234855065474408,
     "schema": {
       "columns": {
@@ -53,7 +53,7 @@
     "is_nestable": true,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "grid",
+    "real_name": "block_grid",
     "component_group_uuid": null,
     "color": null,
     "icon": null,
@@ -63,11 +63,11 @@
     "metadata": {}
   },
   {
-    "name": "image_card",
+    "name": "block_image_card",
     "display_name": null,
     "description": "",
     "created_at": "2026-11-03T16:21:55.074Z",
-    "updated_at": "2026-11-03T16:30:30.580Z",
+    "updated_at": "2026-11-04T15:01:09.963Z",
     "id": 237704458550145,
     "schema": {
       "title": {
@@ -96,7 +96,7 @@
     "is_nestable": true,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "image_card",
+    "real_name": "block_image_card",
     "component_group_uuid": null,
     "color": null,
     "icon": null,
@@ -106,11 +106,11 @@
     "metadata": {}
   },
   {
-    "name": "page",
+    "name": "block_page",
     "display_name": null,
     "description": null,
     "created_at": "2026-10-26T15:07:42.432Z",
-    "updated_at": "2026-10-26T15:07:42.432Z",
+    "updated_at": "2026-11-04T15:01:30.226Z",
     "id": 234855065335142,
     "schema": {
       "body": {
@@ -125,7 +125,7 @@
     "is_nestable": false,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "page",
+    "real_name": "block_page",
     "component_group_uuid": null,
     "color": null,
     "icon": null,
@@ -135,11 +135,11 @@
     "metadata": {}
   },
   {
-    "name": "teaser",
+    "name": "block_teaser",
     "display_name": null,
     "description": null,
     "created_at": "2026-10-26T15:07:42.453Z",
-    "updated_at": "2026-10-26T15:07:42.453Z",
+    "updated_at": "2026-11-04T15:00:34.653Z",
     "id": 234855065412967,
     "schema": {
       "headline": {
@@ -154,7 +154,7 @@
     "is_nestable": true,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "teaser",
+    "real_name": "block_teaser",
     "component_group_uuid": null,
     "color": null,
     "icon": null,
