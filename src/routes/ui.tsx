@@ -1,6 +1,10 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { ContentCard } from '@/components/ContentCard'
+import { Field, FieldDescription, FieldLegend, FieldGroup, FieldSet, FieldError, FieldLabel } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
+import { Checkbox } from "@/components/ui/checkbox"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion"
 
 export const Route = createFileRoute('/ui')({
   component: UiSandBox,
@@ -95,6 +99,75 @@ function UiSandBox() {
           <ContentCard title="Content 2" description="This is the description for content 2." />
           <ContentCard title="Content 3" />
         </div>
+      </section>
+      <section className="w-full max-w-md">
+        <form className="rounded-xl border bg-card p-6 text-card-foreground shadow-sm">
+          <FieldSet className="flex">
+            <FieldGroup>
+              <Field>
+                <FieldLabel htmlFor="username">Username</FieldLabel>
+                <Input id="username" type="text" placeholder="Max Leiter" />
+                <FieldDescription>
+                  Choose a unique username for your account.
+                </FieldDescription>
+                <FieldError>Validation message.</FieldError>
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <FieldDescription>
+                  Must be at least 8 characters long.
+                </FieldDescription>
+                <Input id="password" type="password" placeholder="••••••••" />
+                <FieldError>Validation message.</FieldError>
+              </Field>
+              <FieldSet>
+                <FieldLegend>Billing Address</FieldLegend>
+                <FieldDescription>
+                  The billing address associated with your payment method
+                </FieldDescription>
+                <FieldGroup>
+                  <Field orientation="horizontal">
+                    <Checkbox
+                      id="checkout-7j9-same-as-shipping-wgm"
+                      defaultChecked
+                    />
+                    <FieldLabel
+                      htmlFor="checkout-7j9-same-as-shipping-wgm"
+                      className="font-normal"
+                    >
+                      Same as shipping address
+                    </FieldLabel>
+                  </Field>
+                </FieldGroup>
+              </FieldSet>
+            </FieldGroup>
+          </FieldSet>
+        </form>
+      </section>
+      <section className="flex w-full max-w-md flex-col">
+          <Accordion type="single" collapsible defaultValue="shipping" className="rounded-xl border bg-card px-6 text-card-foreground shadow-sm">
+            <AccordionItem value="shipping">
+              <AccordionTrigger>What are your shipping options?</AccordionTrigger>
+              <AccordionContent>
+                We offer standard (5-7 days), express (2-3 days), and overnight
+                shipping. Free shipping on international orders.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="returns">
+              <AccordionTrigger>What is your return policy?</AccordionTrigger>
+              <AccordionContent>
+                Returns accepted within 30 days. Items must be unused and in original
+                packaging. Refunds processed within 5-7 business days.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="support">
+              <AccordionTrigger>How can I contact customer support?</AccordionTrigger>
+              <AccordionContent>
+                Reach us via email, live chat, or phone. We respond within 24 hours
+                during business days.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
       </section>
     </main>
   )
