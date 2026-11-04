@@ -5,13 +5,20 @@ import { Field, FieldDescription, FieldLegend, FieldGroup, FieldSet, FieldError,
 import { Input } from '@/components/ui/input'
 import { Checkbox } from "@/components/ui/checkbox"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Badge } from '@/components/ui/badge'
 
 export const Route = createFileRoute('/ui')({
   component: UiSandBox,
 })
 
+// UI Sandbox for testing and showcasing UI components 
+// Buttons considering variants, sizes, disabled state, and links
 const variants = ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'] as const
 const sizes = ['xs', 'sm', 'default', 'lg'] as const
+
+// Badge variants
+const badgeVariants = ['default', 'secondary', 'destructive', 'outline', 'ghost', 'link'] as const
 
 function UiSandBox() {
   return (
@@ -140,6 +147,20 @@ function UiSandBox() {
                   </Field>
                 </FieldGroup>
               </FieldSet>
+              <Field>
+                <FieldLabel htmlFor="department">Department</FieldLabel>
+                <Select>
+                  <SelectTrigger id="department">
+                    <SelectValue placeholder="Choose department" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="engineering">Engineering</SelectItem>
+                    <SelectItem value="design">Design</SelectItem>
+                    <SelectItem value="sales">Sales</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FieldDescription>Select your department or area of work.</FieldDescription>
+              </Field>
             </FieldGroup>
           </FieldSet>
         </form>
@@ -168,6 +189,21 @@ function UiSandBox() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+      </section>
+      <section className="flex flex-col gap-4">
+        <h2 className="text-xl font-bold">Badge UI Variants</h2>
+        <div className="flex flex-wrap items-center gap-3">
+          {badgeVariants.map((variant) => (
+            <Badge key={variant} variant={variant}>
+              {variant}
+            </Badge>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <Badge asChild>
+            <Link to="/ui">Link badge</Link>
+          </Badge>
+        </div>
       </section>
     </main>
   )
